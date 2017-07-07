@@ -1,7 +1,6 @@
 var gulp           = require('gulp'),
     gutil          = require('gulp-util' ),
     sass           = require('gulp-sass'),
-    browserSync    = require('browser-sync'),
     concat         = require('gulp-concat'),
     uglify         = require('gulp-uglify'),
     cleanCSS       = require('gulp-clean-css'),
@@ -47,8 +46,7 @@ gulp.task('js', ['common-js'], function() {
     ])
         .pipe(concat('common.min.js'))
         // .pipe(uglify()) // Минимизировать весь js (на выбор)
-        .pipe(gulp.dest('public/js'))
-        .pipe(browserSync.reload({stream: true}));
+        .pipe(gulp.dest('public/js'));
 });
 
 gulp.task('sass', function() {
@@ -57,8 +55,7 @@ gulp.task('sass', function() {
         .pipe(rename({suffix: '.min', prefix : ''}))
         .pipe(autoprefixer(['last 15 versions']))
         //.pipe(cleanCSS())
-        .pipe(gulp.dest('resources/assets/css'))
-        .pipe(browserSync.reload({stream: true}));
+        .pipe(gulp.dest('resources/assets/css'));
 });
 
 gulp.task('css', ['sass'], function() {
@@ -70,8 +67,7 @@ gulp.task('css', ['sass'], function() {
         'resources/assets/css/app.min.css', // Всегда в конце
     ])
         .pipe(concat('main.min.css'))
-        .pipe(gulp.dest('public/css'))
-        .pipe(browserSync.reload({stream: true}));
+        .pipe(gulp.dest('public/css'));
 });
 
 gulp.task('icons', function() {
