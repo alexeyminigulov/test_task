@@ -14,7 +14,7 @@ docker exec -it id_container bash
 ```
 Перейдите в директорию с сайтом:
 ```sh
-cd /var/www/shop
+cd /var/www/site.ru
 ```
 И выполните миграцию:
 ```sh
